@@ -19,7 +19,6 @@ const primeryOperandDisplay = document.querySelector(
     '[data-current-operand]')
 const operationDisplay = document.querySelector('[data-operation]')
 
-
 const calculator = new Calculator(
     primeryOperandDisplay,
     secondaryOperandDisplay,
