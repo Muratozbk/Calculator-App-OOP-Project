@@ -1,5 +1,5 @@
 
-# Javascript Calculator with Object-Oriented-Programing 
+# Calculator with Object-Oriented-Programing 
 
 This is a simple calculator application built using Object-Oriented Programming (OOP) principles in JavaScript.
 
