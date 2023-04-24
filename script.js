@@ -19,41 +19,19 @@ const primeryOperandDisplay = document.querySelector(
     '[data-current-operand]')
 const operationDisplay = document.querySelector('[data-operation]')
 
-// const calculator = new Calculator(
-//     primeryOperandDisplay,
-//     secondaryOperandDisplay,
-//     operationDisplay
-// )
-
-// document.addEventListener('click', e => {
-//     if (e.target.matches('[data-all-clear]')) {
-//         calculator.clear()
-//     }
-//     if (e.target.matches('[data-number]')) {
-//         calculator.addDigit(e.target.textContent)
-//     }
-//     if (e.target.matches('[data-delete]')) {
-//         calculator.removeDigit()
-//     }
-//     if (e.target.matches('[data-operation]')) {
-//         calculator.chooseOperation(e.target.textContent)
-//     }
-//     if (e.target.matches('[data-equals]')) {
-//         calculator.evaluate()
-//     }
-// })
-
-const calculator = new Calculator(primeryOperandDisplay,
+const calculator = new Calculator(
+    primeryOperandDisplay,
     secondaryOperandDisplay,
-    operationDisplay)
+    operationDisplay
+)
 
 document.addEventListener('click', e => {
-    if (e.target === allClearButton) {
+    e.preventDefault()
+    if (e.target.matches('[data-all-clear]')) {
         calculator.clear()
     }
     if (e.target.matches('[data-number]')) {
         calculator.addDigit(e.target.textContent)
-
     }
     if (e.target.matches('[data-delete]')) {
         calculator.removeDigit()
@@ -63,5 +41,29 @@ document.addEventListener('click', e => {
     }
     if (e.target.matches('[data-equals]')) {
         calculator.evaluate()
+        calculator.finish()
+    }
+})
+
+document.addEventListener('keydown', e => {
+    e.preventDefault()
+    //Check if a number key was pressed
+    if ((e.key >= 0 && e.key <= 9) || e.key === '.') {
+        calculator.addDigit(e.key)
+    }
+    if (e.key === 'c' || e.key === 'Escape') {
+        calculator.clear()
+    }
+    if (e.key === 'Backspace') {
+        calculator.removeDigit()
+    }
+    if (e.key === 'Enter' || e.key === '=') {
+        calculator.evaluate()
+        calculator.finish()
+        console.log(e)
+    }
+    if (['*', '/', '-', '+', 'x'].includes(e.key)) {
+        calculator.chooseOperation(e.key)
+        console.log(e)
     }
 })
