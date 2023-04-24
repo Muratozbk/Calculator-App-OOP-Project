@@ -19,18 +19,41 @@ const primeryOperandDisplay = document.querySelector(
     '[data-current-operand]')
 const operationDisplay = document.querySelector('[data-operation]')
 
-const calculator = new Calculator(
-    primeryOperandDisplay,
+// const calculator = new Calculator(
+//     primeryOperandDisplay,
+//     secondaryOperandDisplay,
+//     operationDisplay
+// )
+
+// document.addEventListener('click', e => {
+//     if (e.target.matches('[data-all-clear]')) {
+//         calculator.clear()
+//     }
+//     if (e.target.matches('[data-number]')) {
+//         calculator.addDigit(e.target.textContent)
+//     }
+//     if (e.target.matches('[data-delete]')) {
+//         calculator.removeDigit()
+//     }
+//     if (e.target.matches('[data-operation]')) {
+//         calculator.chooseOperation(e.target.textContent)
+//     }
+//     if (e.target.matches('[data-equals]')) {
+//         calculator.evaluate()
+//     }
+// })
+
+const calculator = new Calculator(primeryOperandDisplay,
     secondaryOperandDisplay,
-    operationDisplay
-)
+    operationDisplay)
 
 document.addEventListener('click', e => {
-    if (e.target.matches('[data-all-clear]')) {
+    if (e.target === allClearButton) {
         calculator.clear()
     }
     if (e.target.matches('[data-number]')) {
         calculator.addDigit(e.target.textContent)
+
     }
     if (e.target.matches('[data-delete]')) {
         calculator.removeDigit()
