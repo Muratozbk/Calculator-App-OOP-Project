@@ -84,14 +84,23 @@ export default class Calculator {
         return result
     }
 
+    // chooseOperation(operation) {
+    //     if (!this.operation) {
+    //         this.operation = operation;
+    //         this.secondaryOperand = this.primeryOperand
+    //         this.primeryOperand = 0
+    //     }
+    //     console.log(operation)
+    // }
     chooseOperation(operation) {
-        console.log(operation, this.operation)
-        if (this.operation !== '') return
+        if (this.operation) {
+            this.evaluate();
+        }
         this.operation = operation;
-        this.secondaryOperand = this.primeryOperand
-        this.primeryOperand = 0
-        return
+        this.secondaryOperand = this.primeryOperand;
+        this.primeryOperand = 0;
     }
+
 
     clear() {
         this.primeryOperand = 0;
