@@ -1,5 +1,5 @@
 
-# Javascript Calculator with Object-Oriented-Programing 
+# Calculator with Object-Oriented-Programing 
 
 This is a simple calculator application built using Object-Oriented Programming (OOP) principles in JavaScript.
 
@@ -10,7 +10,7 @@ This is a simple calculator application built using Object-Oriented Programming 
 - Clear and delete functionalities
 - Keyboard support
 
-![Calculator screenshot](/Cal.PNG)
+![Calculator screenshot](./Cal.PNG){:width="50%"}
 
 ## Installation
 
