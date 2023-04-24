@@ -168,6 +168,48 @@ export default class Calculator {
             this.#primeryOperandDisplay.dataset.value + e;
     }
 
+    evaluate() {
+        let result;
+        switch (this.operation) {
+            case 'x':
+                result = this.secondaryOperand * this.primeryOperand;
+                break
+            case '÷':
+                result = this.secondaryOperand / this.primeryOperand
+                break
+            case '+':
+                result = this.secondaryOperand + this.primeryOperand
+                break
+            case '-':
+                result = this.secondaryOperand - this.primeryOperand
+                break
+            default: return
+        }
+        this.clear()
+        this.primeryOperand = result
+        return result
+
+    }
+
+    chooseOperation(operation) {
+        if (this.operation) {
+            this.evaluate()
+        }
+        this.secondaryOperand = this.primeryOperand
+        this.primeryOperand = 0;
+        this.operation = operation
+
+    }
+
+    removeDigit() {
+        if (this.#primeryOperandDisplay.dataset.value.length <= 1) {
+            this.primeryOperand = 0
+            return
+        }
+        this.primeryOperand =
+            this.#primeryOperandDisplay.dataset.value.slice(0, -1)
+    }
+
     clear() {
         this.secondaryOperand = null
         this.operation = null
@@ -183,7 +225,7 @@ function displayNumber(number) {
     const [integer, decimal] = stringNumber.split('.');
     const formattedInteger = NUMBER_FORMATTER.format(integer);
     if (decimal == null) return formattedInteger
-    return formattedInteger + '.' + decimal
+    return formattedInteger + '.' + decimal.slice(0, 7)
 }
 
 
