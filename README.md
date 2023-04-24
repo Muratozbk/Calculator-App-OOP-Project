@@ -10,7 +10,7 @@ This is a simple calculator application built using Object-Oriented Programming 
 - Clear and delete functionalities
 - Keyboard support
 
-![Calculator screenshot](./Cal.PNG){:width="50%"}
+![Calculator screenshot](./Cal.PNG)
 
 ## Installation
 
