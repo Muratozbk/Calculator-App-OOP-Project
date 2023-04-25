@@ -48,7 +48,7 @@ document.addEventListener('click', e => {
 document.addEventListener('keydown', e => {
     e.preventDefault()
     //Check if a number key was pressed
-    if ((e.key >= 0 && e.key <= 9) || e.key === '.') {
+    if ((+e.key >= 0 && +e.key <= 9) || e.key === '.') {
         calculator.addDigit(e.key)
     }
     if (e.key === 'c' || e.key === 'Escape') {
@@ -60,10 +60,8 @@ document.addEventListener('keydown', e => {
     if (e.key === 'Enter' || e.key === '=') {
         calculator.evaluate()
         calculator.finish()
-        console.log(e)
     }
     if (['*', '/', '-', '+', 'x'].includes(e.key)) {
         calculator.chooseOperation(e.key)
-        console.log(e)
     }
 })
